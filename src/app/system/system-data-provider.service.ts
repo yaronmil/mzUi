@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {system} from "./system";
+import {sysLink} from "./sys-link";
 
 @Injectable()
 export class SystemDataProviderService {
@@ -339,10 +341,36 @@ export class SystemDataProviderService {
     {"source": "Mme.Hucheloup", "target": "Gavroche", "value": 1},
     {"source": "Mme.Hucheloup", "target": "Enjolras", "value": 1}
     ]}`;
-  constructor() { }
+  private sysList:system[];
+  private links:sysLink[];
+  constructor() {
+    this.sysList=[
+      {id:1,name:'MF',group:1},
+      {id:2,name:'HSM',group:1},
+      {id:3,name:'BANKLINK',group:1},
+      {id:4,name:'QSWITCH',group:1},
+      {id:5,name:'SMF',group:1},
+      {id:6,name:'כספונים',group:1}
+      ]
+    this.links=[
+        {source:6,target:1,value:1},
+      {source:6,target:2,value:10},
+      {source:6,target:3,value:1},
+      {source:6,target:4,value:1},
+      {source:6,target:5,value:1}
+      ]
+  }
 
   public getSystemsWithRelataions( ):Object {
     return JSON.parse(this.jsonString);
+  }
+  public  getSystemsList():system[]
+  {
+    return this.sysList;
+  }
+  public  getLinks ():sysLink[]
+  {
+    return this.links;
   }
 
 }

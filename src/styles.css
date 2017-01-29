@@ -44,4 +44,8 @@ h1 {
   stroke-width: 1.5px;
 
 }
+.node text {
+  font: 10px Arial;
 
+
+}

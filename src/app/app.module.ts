@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { SysRelationsComponent } from './system/sys-relations/sys-relations.component';
 import {SystemDataProviderService} from "./system/system-data-provider.service";
 
+
 @NgModule({
   declarations: [
     AppComponent,
