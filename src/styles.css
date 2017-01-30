@@ -30,5 +30,6 @@ h1 {
 .md-sidenav-content{
   display: flex !important;
   flex-direction:column !important;
-  overflow: hidden !important;
+
+
 }

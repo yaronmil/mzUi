@@ -10,7 +10,7 @@ import {link} from "fs";
 @Component({
   selector: 'app-sys-map',
   template: ` 
-            <svg style="" id="mzSysMapSvg" ></svg>
+            <svg style="background-color: rgb(245, 245, 245);" id="mzSysMapSvg" ></svg>
            `
 })
 export class MzSysMapComponent   {
@@ -21,21 +21,21 @@ export class MzSysMapComponent   {
   private links:sysLink[]=null;
 
   private width: number = window.innerWidth;
-  private height: number = window.innerHeight-70;
+  private height: number = window.innerHeight-118;
   constructor(element: ElementRef, d3Service: D3Service, systemDataProviderService: SystemDataProviderService) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
     systemDataProviderService.getSystemsList().subscribe(
       nodes => {
-        this.nodes = nodes,
+        this.nodes = nodes;
         this.checkGetDataDone()
 
       });
 
     systemDataProviderService.getSysLinks().subscribe(
       links => {
-        this.links = links,
-          this.checkGetDataDone()});
+        this.links = links;
+        this.checkGetDataDone()});
   }
 
   private checkGetDataDone()
@@ -43,20 +43,24 @@ export class MzSysMapComponent   {
 
     if(this.links!=null && this.nodes!=null)
     {
-      var linkSysNames:string[]=new Array();
-      this.links.forEach(l=>{linkSysNames.push(l.target),linkSysNames.push(l.source) })
-      this.nodes=this.nodes.filter(n=>linkSysNames.includes(n.name))
-      this.nodes=this.nodes.filter( (node, index, self)=>{return self.findIndex((n:MzSystem)=>{return n.name==node.name }) === index;})
-console.log(this.nodes)
+      const linkSysNames =[];
+      this.links.forEach(l=>{
+        linkSysNames.push(l.target);
+        linkSysNames.push(l.source)
+      });
+      this.nodes=this.nodes.filter(n=>linkSysNames.includes(n.name));
+      this.nodes=this.nodes.filter( (node, index, self)=>{return self.findIndex((n:MzSystem)=>{return n.name==node.name }) === index;});
       this.drawGraph();
     }
 
   }
 
   private drawGraph() {
-    let svg = this.d3.select("#mzSysMapSvg")
+    let svg = this.d3.select("#mzSysMapSvg");
+
+
     svg.attr("width", this.width).attr("height", this.height);
-    let color = this.d3.scaleOrdinal(this.d3.schemeCategory20);
+    /*let color = this.d3.scaleOrdinal(this.d3.schemeCategory20);*/
     let simulation = this.d3.forceSimulation(this.nodes)
       .force("charge", this.d3.forceManyBody())
       .force("charge", this.d3.forceManyBody())
@@ -77,7 +81,7 @@ console.log(this.nodes)
     node.append("circle").attr("r", 32.5).attr("fill","rgb(255, 216, 110)");
 
 
-    ;//.attr("fill",function(d) { return color(d.loadOrder==null ?"2" :d.loadOrder.toString()); });
+    //.attr("fill",function(d) { return color(d.loadOrder==null ?"2" :d.loadOrder.toString()); });
     node.append("text")
       .attr("y", 10).attr("fill","rgb(96, 74, 14)")
       .attr("text-anchor","middle")
@@ -118,6 +122,14 @@ console.log(this.nodes)
           });
 
       });
+
+    svg.call(this.d3.zoom()
+      .scaleExtent([1 / 2, 8])
+      .on("zoom", function(){
+        node.attr("transform", that.d3.event.transform);
+        link.attr("transform", that.d3.event.transform);
+      }));
+
     this.d3.selectAll("g").call(this.d3.drag().on("start", function (d: SimulationNodeDatum) {
       if (!that.d3.event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
