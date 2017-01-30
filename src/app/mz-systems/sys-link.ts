@@ -1,5 +1,5 @@
 export class sysLink {
-  public source:number;
-  public target:number;
+  public source:string;
+  public target:string;
   public value:number;
 }

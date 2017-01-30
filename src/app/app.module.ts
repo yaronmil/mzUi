@@ -7,21 +7,26 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
-import { SysRelationsComponent } from './system/sys-relations/sys-relations.component';
-import {SystemDataProviderService} from "./system/system-data-provider.service";
+import { MzSysMapComponent } from './mz-systems/mz-sys-map.component';
+import {SystemDataProviderService} from "./mz-systems/system-data-provider.service";
+import { RouterModule } from '@angular/router';
+import { AppRoutes} from './app-routes';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SysRelationsComponent
+    MzSysMapComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot()
+    FlexLayoutModule.forRoot(),
+    RouterModule.forRoot(AppRoutes)
 
   ],
   providers: [D3Service,SystemDataProviderService],

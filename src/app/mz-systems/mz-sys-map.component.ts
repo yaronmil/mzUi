@@ -1,100 +1,89 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 import {D3Service, D3, SimulationNodeDatum} from 'd3-ng2-service';
-import{SystemDataProviderService} from  '../system-data-provider.service'
-import {system} from '../system'
+import{SystemDataProviderService} from  './system-data-provider.service'
+import {MzSystem} from './mz-system'
 import {SimulationLinkDatum} from "d3-force";
+import {sysLink} from "./sys-link";
+import {link} from "fs";
+
 
 @Component({
-  selector: 'app-sys-relations',
-  template: ``
+  selector: 'app-sys-map',
+  template: ` 
+            <svg style="" id="mzSysMapSvg" ></svg>
+           `
 })
-export class SysRelationsComponent implements OnInit {
+export class MzSysMapComponent   {
 
-  private d3: D3; // <-- Define the private member which will hold the d3 reference
-  node: SimulationNodeDatum;
+  private d3: D3;
   private parentNativeElement: any;
-  private sdps:SystemDataProviderService;
+  private nodes:MzSystem[]=null;
+  private links:sysLink[]=null;
 
-  private width: number = 1800;
-  private height: number = 600;
-  constructor(element: ElementRef, d3Service: D3Service, systemDataProviderService: SystemDataProviderService) { // <-- pass the D3 Service into the constructor
-    this.d3 = d3Service.getD3(); // <-- obtain the d3 object from the D3 Service
+  private width: number = window.innerWidth;
+  private height: number = window.innerHeight-70;
+  constructor(element: ElementRef, d3Service: D3Service, systemDataProviderService: SystemDataProviderService) {
+    this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
-    this.sdps=systemDataProviderService;
+    systemDataProviderService.getSystemsList().subscribe(
+      nodes => {
+        this.nodes = nodes,
+        this.checkGetDataDone()
+
+      });
+
+    systemDataProviderService.getSysLinks().subscribe(
+      links => {
+        this.links = links,
+          this.checkGetDataDone()});
   }
 
+  private checkGetDataDone()
+  {
 
+    if(this.links!=null && this.nodes!=null)
+    {
+      var linkSysNames:string[]=new Array();
+      this.links.forEach(l=>{linkSysNames.push(l.target),linkSysNames.push(l.source) })
+      this.nodes=this.nodes.filter(n=>linkSysNames.includes(n.name))
+      this.nodes=this.nodes.filter( (node, index, self)=>{return self.findIndex((n:MzSystem)=>{return n.name==node.name }) === index;})
+console.log(this.nodes)
+      this.drawGraph();
+    }
 
-  ngOnInit() {
-    //this.d3.select(this.parentNativeElement).style("color", "red").append("p").text("hghghg");
-    // separation between circles
+  }
 
-
-
-    let svg = this.d3.select(this.parentNativeElement).append("svg");
+  private drawGraph() {
+    let svg = this.d3.select("#mzSysMapSvg")
     svg.attr("width", this.width).attr("height", this.height);
     let color = this.d3.scaleOrdinal(this.d3.schemeCategory20);
-
-
-  //  var nodes: system[] = [{id: 1, name: 'Alice'}, {id: 2, name: 'Bob'}];
-   // var nodes=this.sdps.nodes;
-    let nodes=this.sdps.getSystemsList();
-
-    /*var links = [
-      {"source": "Alice", "target": "Bob"},
-
-    ];*/
-
-
-
-
-    let links=this.sdps.getLinks();
-
-
-
-
-
-
-
-
-    let simulation = this.d3.forceSimulation(nodes)
+    let simulation = this.d3.forceSimulation(this.nodes)
       .force("charge", this.d3.forceManyBody())
       .force("charge", this.d3.forceManyBody())
       .force("collide",this.d3.forceCollide( function(){return 40.5 }).iterations(16) )
-      .force("link", this.d3.forceLink(links).distance(150).id(function (d:system) {
-        return d.id.toString()
+      .force("link", this.d3.forceLink(this.links).distance(150).id(function (d:MzSystem) {
+        /*return d.id.toString()*/
+        return d.name
       }))
       .force("center", this.d3.forceCenter(this.width / 2, this.height / 2));
-
     let link = svg.append("g")
       .attr("class", "links")
       .selectAll("line")
-      .data(links)
+      .data(this.links)
       .enter().append("line");
-
-
-
-
-
     let that = this;
+    let node = svg.selectAll(".node").data(this.nodes).enter().append("g") .attr("class", "node");
 
-    let node = svg.selectAll(".node").data(nodes).enter().append("g") .attr("class", "node");
+    node.append("circle").attr("r", 32.5).attr("fill","rgb(255, 216, 110)");
 
 
-
-    node.append("circle").attr("r", 32.5) .attr("fill",function(d) { return color(d.group.toString()); });
-
+    ;//.attr("fill",function(d) { return color(d.loadOrder==null ?"2" :d.loadOrder.toString()); });
     node.append("text")
       .attr("y", 10).attr("fill","rgb(96, 74, 14)")
       .attr("text-anchor","middle")
       .text(function(d) { return d.name });
-
-
-
-
-
     simulation
-      .nodes(nodes)
+      .nodes(this.nodes)
       .on("tick", function () {
         link
           .attr("x1", function (d: SimulationLinkDatum<SimulationNodeDatum>) {
@@ -112,7 +101,7 @@ export class SysRelationsComponent implements OnInit {
         that.d3.selectAll("circle")
           .attr("stroke-width","2px").
           attr("stroke","rgb(237, 186, 57")
-          .attr("fill","rgb(255, 216, 110)")
+
           .attr("cx", function (d: SimulationNodeDatum) {
             return d.x;
           })
@@ -142,8 +131,6 @@ export class SysRelationsComponent implements OnInit {
         d.fx = null;
         d.fy = null;
     }));
-
-
   }
 
 }
