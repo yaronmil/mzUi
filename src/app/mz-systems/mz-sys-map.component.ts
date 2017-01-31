@@ -7,11 +7,25 @@ import {sysLink} from "./sys-link";
 import {link} from "fs";
 
 
+
 @Component({
   selector: 'app-sys-map',
   template: ` 
-            <svg style="background-color: rgb(245, 245, 245);" id="mzSysMapSvg" ></svg>
-           `
+           <md-sidenav-container  dir="rtl" class="mzContent">
+            <md-sidenav #leftmenu    opened="true" align="start" mode="side">
+              <md-nav-list>
+                <hr>
+              </md-nav-list>
+              <button md-button (click)="leftmenu.close()">CLOSE</button>
+            </md-sidenav>
+           
+             <app-map-search [leftmenu]="leftmenu"></app-map-search>
+                      <svg style="background-color: rgb(245, 245, 245);" id="mzSysMapSvg" ></svg>
+              </md-sidenav-container>         
+           `,
+  styles:[`md-sidenav {
+  width: 320px;
+}`]
 })
 export class MzSysMapComponent   {
 

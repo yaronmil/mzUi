@@ -7,20 +7,25 @@
     <button md-button (click)="start.close()">CLOSE</button>
   </md-sidenav>
 
-    <md-toolbar color="primary">
+
+  <md-toolbar color="primary">
           <button md-icon-button (click)="start.open()">
-            <md-icon class="md-24" >menu</md-icon>
+            <md-icon class="md-24" >visibility</md-icon>
           </button>
           <div>
+
+
             <h1>מבט לזמינות החדשה</h1>
+
+
 
           </div>
         </md-toolbar>
 
-    <div style="flex: 1;background-color: rgb(245, 245, 245);" >
+    <div style="flex: 1;" class="mzContent" >
       <router-outlet></router-outlet>
     </div>
-  <div style="flex:auto;flex-grow: 0;height:50px;background-color: rgb(245, 245, 245);background-image:url('../assets/TochnoLogiaLogo.gif');background-repeat: no-repeat;background-position: right;"></div>
+  <div class="mzContent" style="flex:auto;flex-grow: 0;height:50px;background-image:url('../assets/TochnoLogiaLogo.gif');background-repeat: no-repeat;background-position: right;"></div>
 
 
 </md-sidenav-container>

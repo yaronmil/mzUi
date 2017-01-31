@@ -11,24 +11,31 @@ import { MzSysMapComponent } from './mz-systems/mz-sys-map.component';
 import {SystemDataProviderService} from "./mz-systems/system-data-provider.service";
 import { RouterModule } from '@angular/router';
 import { AppRoutes} from './app-routes';
+import { MapSearchComponent } from './mz-systems/map-search.component';
 
+import {RtlModule} from '@angular/material/core/rtl/dir';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MzSysMapComponent
+    MzSysMapComponent,
+    MapSearchComponent
+
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RtlModule,
     MaterialModule.forRoot(),
+
     FlexLayoutModule.forRoot(),
     RouterModule.forRoot(AppRoutes)
 
   ],
+
   providers: [D3Service,SystemDataProviderService],
   bootstrap: [AppComponent]
 })
