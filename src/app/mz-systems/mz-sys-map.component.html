@@ -1,0 +1,11 @@
+<md-sidenav-container  dir="rtl" class="mzContent">
+  <md-sidenav #leftmenu      opened="true" align="start" mode="side">
+    <md-nav-list>
+      <hr>
+    </md-nav-list>
+    <button md-button (click)="leftmenu.close()">CLOSE</button>
+  </md-sidenav>
+
+  <app-map-search [leftmenu]="leftmenu"></app-map-search>
+  <svg style="background-color: rgb(245, 245, 245);" id="mzSysMapSvg" ></svg>
+</md-sidenav-container>

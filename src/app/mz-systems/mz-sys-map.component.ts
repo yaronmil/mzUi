@@ -1,34 +1,24 @@
-import {Component, ElementRef} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {D3Service, D3, SimulationNodeDatum} from 'd3-ng2-service';
 import{SystemDataProviderService} from  './system-data-provider.service'
 import {MzSystem} from './mz-system'
 import {SimulationLinkDatum} from "d3-force";
 import {sysLink} from "./sys-link";
 import {link} from "fs";
+import {MdSidenav} from "@angular/material";
 
 
 
 @Component({
   selector: 'app-sys-map',
-  template: ` 
-           <md-sidenav-container  dir="rtl" class="mzContent">
-            <md-sidenav #leftmenu    opened="true" align="start" mode="side">
-              <md-nav-list>
-                <hr>
-              </md-nav-list>
-              <button md-button (click)="leftmenu.close()">CLOSE</button>
-            </md-sidenav>
-           
-             <app-map-search [leftmenu]="leftmenu"></app-map-search>
-                      <svg style="background-color: rgb(245, 245, 245);" id="mzSysMapSvg" ></svg>
-              </md-sidenav-container>         
-           `,
+  templateUrl: './mz-sys-map.component.html',
   styles:[`md-sidenav {
   width: 320px;
 }`]
 })
 export class MzSysMapComponent   {
 
+  @ViewChild('leftmenu') leftmenu: MdSidenav;
   private d3: D3;
   private parentNativeElement: any;
   private nodes:MzSystem[]=null;
@@ -50,6 +40,7 @@ export class MzSysMapComponent   {
       links => {
         this.links = links;
         this.checkGetDataDone()});
+
   }
 
   private checkGetDataDone()
@@ -91,7 +82,9 @@ export class MzSysMapComponent   {
       .enter().append("line");
     let that = this;
     let node = svg.selectAll(".node").data(this.nodes).enter().append("g") .attr("class", "node");
-
+    node.on("click",function(){
+        that.leftmenu.toggle();
+    })
     node.append("circle").attr("r", 32.5).attr("fill","rgb(255, 216, 110)");
 
 
