@@ -14,13 +14,19 @@ import { AppRoutes} from './app-routes';
 import { MapSearchComponent } from './mz-systems/map-search.component';
 
 import {RtlModule} from '@angular/material/core/rtl/dir';
+import { MonthlyGougeComponent } from './mz-systems/sideNav/monthly-gouge.component';
+import { GaugeModule } from 'ng2-kw-gauge';
+import { SysStartUpLevelSelectorComponent ,DialogOverviewExampleDialog} from './mz-systems/sys-start-up-level-selector/sys-start-up-level-selector.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MzSysMapComponent,
-    MapSearchComponent
+    MapSearchComponent,
+    MonthlyGougeComponent,
+    SysStartUpLevelSelectorComponent,
+    DialogOverviewExampleDialog
 
 
   ],
@@ -32,8 +38,12 @@ import {RtlModule} from '@angular/material/core/rtl/dir';
     MaterialModule.forRoot(),
 
     FlexLayoutModule.forRoot(),
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
+    GaugeModule
 
+  ],
+  entryComponents: [
+    DialogOverviewExampleDialog
   ],
 
   providers: [D3Service,SystemDataProviderService],

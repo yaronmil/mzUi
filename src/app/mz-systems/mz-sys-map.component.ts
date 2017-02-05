@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild, ViewEncapsulation} from '@angular/core';
 import {D3Service, D3, SimulationNodeDatum} from 'd3-ng2-service';
 import{SystemDataProviderService} from  './system-data-provider.service'
 import {MzSystem} from './mz-system'
@@ -12,9 +12,23 @@ import {MdSidenav} from "@angular/material";
 @Component({
   selector: 'app-sys-map',
   templateUrl: './mz-sys-map.component.html',
-  styles:[`md-sidenav {
-  width: 320px;
-}`]
+  styles:[
+    ` 
+      #tile1 figure{
+        flex-direction: column !important;
+        align-items: stretch;
+        justify-content: inherit;
+      }
+       #tile1 md-grid-tile-header{
+       position: static;
+       }
+       .md-list-item{
+       font-size:14px !important;
+       height:36px !important;
+       }
+       
+`],
+  encapsulation: ViewEncapsulation.None
 })
 export class MzSysMapComponent   {
 

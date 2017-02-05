@@ -1,11 +1,101 @@
 <md-sidenav-container  dir="rtl" class="mzContent">
-  <md-sidenav #leftmenu      opened="true" align="start" mode="side">
-    <md-nav-list>
-      <hr>
-    </md-nav-list>
-    <button md-button (click)="leftmenu.close()">CLOSE</button>
+  <md-sidenav #leftmenu  style="width:320px;"    opened="true" align="start" mode="side">
+
+    <md-card style="height:100px;">
+      <md-card-header>
+        <md-card-title>שעות פעילות</md-card-title>
+        <md-card-subtitle>150</md-card-subtitle>
+        <md-card-title>SLA</md-card-title>
+        <md-card-subtitle>100% (150)</md-card-subtitle>
+        <md-icon  md-card-avatar class="md-sm">access_time</md-icon>
+      </md-card-header>
+
+      <sys-monthly-gouge></sys-monthly-gouge>
+    </md-card>
+ <!--   <md-grid-list cols="2" rowHeight="100px">
+      <md-grid-tile colspan="2" rowspan="3" id="tile1">
+        <md-grid-tile-header>
+            כספונים
+
+          <button  md-icon-button (click)="leftmenu.close()" style="position: absolute; left:0;top:3px;">
+            <md-icon class="md-24" >chevron_right</md-icon>
+          </button>
+        </md-grid-tile-header>
+<div style="flex:1;padding:5px;">
+          <md-card style="height:240px;padding:10px;">
+
+          &lt;!&ndash;  <md-card-title style="font-size:16px;">מבט כללי</md-card-title>&ndash;&gt;
+          &lt;!&ndash;  <md-card-subtitle>מבט כללי</md-card-subtitle>&ndash;&gt;
+          &lt;!&ndash;  <md-icon  md-card-avatar class="md-24" >chevron_right</md-icon>&ndash;&gt;
+            <md-card style="height:100px;">
+              <md-card-header>
+                <md-card-title>שעות פעילות</md-card-title>
+                <md-card-subtitle>150</md-card-subtitle>
+                <md-card-title>SLA</md-card-title>
+                <md-card-subtitle>100% (150)</md-card-subtitle>
+                <md-icon  md-card-avatar class="md-sm">access_time</md-icon>
+              </md-card-header>
+
+
+            </md-card>
+
+              <md-grid-list cols="2" rowHeight="100px">
+                <md-grid-tile colspan="1" rowspan="1" >
+                  <md-grid-tile-header>חודשי</md-grid-tile-header>
+                </md-grid-tile>
+                <md-grid-tile colspan="1" rowspan="1" >
+                  <md-grid-tile-header>שנתי</md-grid-tile-header>
+                </md-grid-tile>
+              </md-grid-list>
+
+
+
+
+          &lt;!&ndash;  <md-list>
+              <md-list-item style="font-size: 12px !important;">
+                <md-icon>access_time</md-icon>
+ 360000 סה"כ זמני פעילות בדקות</md-list-item>
+              <md-list-item>
+                <md-icon>av_timer</md-icon>
+                SLA חודשי  100% (360000 דקות)</md-list-item>
+              <md-list-item> DOWN-TIME חודשי 10 דקות  </md-list-item>
+              <md-list-item> DOWN-TIME שנתי 10 דקות  </md-list-item>
+              <md-list-item> Paprika </md-list-item>
+            </md-list>&ndash;&gt;
+
+          </md-card>
+</div>
+
+&lt;!&ndash;<md-list>
+        <md-list-item> UP-TIME חודשי 150 דקות </md-list-item>
+        <md-list-item> SLA חודשי  100% (150 דקות)</md-list-item>
+        <md-list-item> DOWN-TIME חודשי 10 דקות  </md-list-item>
+        <md-list-item> DOWN-TIME שנתי 10 דקות  </md-list-item>
+        <md-list-item> Paprika </md-list-item>
+      </md-list>&ndash;&gt;
+
+      </md-grid-tile>
+
+
+
+
+      <md-grid-tile  colspan="1" rowspan="2"  >
+        <md-grid-tile-header style="background-color: white;color: black;">זמינות חודשית<md-icon class="md-24" style="color: red; transform: rotate(180deg);" >change_history</md-icon></md-grid-tile-header>
+        <sys-monthly-gouge></sys-monthly-gouge>
+      </md-grid-tile>
+      <md-grid-tile  colspan="1" rowspan="2"   >
+        <md-grid-tile-header style="background-color: white;color: black;">  זמינות שנתית<md-icon class="md-24" style="color: green" >change_history</md-icon></md-grid-tile-header>
+
+        <sys-monthly-gouge></sys-monthly-gouge>
+      </md-grid-tile>
+
+
+    </md-grid-list>
+   </div>-->
+
   </md-sidenav>
 
   <app-map-search [leftmenu]="leftmenu"></app-map-search>
+  <sys-start-up-level-selector></sys-start-up-level-selector>
   <svg style="background-color: rgb(245, 245, 245);" id="mzSysMapSvg" ></svg>
 </md-sidenav-container>
