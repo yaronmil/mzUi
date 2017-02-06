@@ -32,14 +32,14 @@ import {MdSidenav} from "@angular/material";
 })
 export class MzSysMapComponent   {
 
-  @ViewChild('leftmenu') leftmenu: MdSidenav;
+  @ViewChild('rightmenu') rightmenu: MdSidenav;
   private d3: D3;
   private parentNativeElement: any;
   private nodes:MzSystem[]=null;
   private links:sysLink[]=null;
 
   private width: number = window.innerWidth;
-  private height: number = window.innerHeight-118;
+  private height: number = window.innerHeight-114;
   constructor(element: ElementRef, d3Service: D3Service, systemDataProviderService: SystemDataProviderService) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
@@ -97,7 +97,7 @@ export class MzSysMapComponent   {
     let that = this;
     let node = svg.selectAll(".node").data(this.nodes).enter().append("g") .attr("class", "node");
     node.on("click",function(){
-        that.leftmenu.toggle();
+        that.rightmenu.toggle();
     })
     node.append("circle").attr("r", 32.5).attr("fill","rgb(255, 216, 110)");
 
@@ -106,6 +106,7 @@ export class MzSysMapComponent   {
     node.append("text")
       .attr("y", 10).attr("fill","rgb(96, 74, 14)")
       .attr("text-anchor","middle")
+      .attr("class", "nodesText")
       .text(function(d) { return d.name });
     simulation
       .nodes(this.nodes)
@@ -134,7 +135,7 @@ export class MzSysMapComponent   {
             return d.y;
           });
 
-        that.d3.selectAll("text")
+        that.d3.selectAll(".nodesText")
           .attr("x", function (d: SimulationNodeDatum) {
             return d.x;
           })

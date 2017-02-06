@@ -6,7 +6,7 @@ import {importType} from "@angular/compiler/src/output/output_ast";
   template: `
  <div id="omnibox">
  <div id="searchbox">
-          <button md-icon-button  (click)="leftmenu.toggle()">
+          <button md-icon-button  (click)="rightmenu.toggle()">
             <md-icon class="md-24">menu</md-icon> 
           </button>
             <md-input-container style="width:224px;">
@@ -59,7 +59,7 @@ export class MapSearchComponent implements OnInit {
   constructor() { }
 
   @Input()
-  public leftmenu:any  ;
+  public rightmenu:any  ;
   ngOnInit() {
   }
 
