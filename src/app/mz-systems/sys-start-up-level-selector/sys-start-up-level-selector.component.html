@@ -1,0 +1,21 @@
+<div style="position: absolute; right:20px;top: 10px;">
+  <md-checkbox class="example-margin" >1</md-checkbox>
+  <md-checkbox class="example-margin" >2</md-checkbox><md-checkbox class="example-margin" >3</md-checkbox>
+  <md-checkbox class="example-margin" >הצג מנהלי מערכת</md-checkbox>
+  <br>
+  <md-radio-group  >
+    <md-radio-button [value]="1" >
+     כל המערכות
+    </md-radio-button>
+    <md-radio-button  [value]="2">
+      מערכות פתוחות בלבד
+    </md-radio-button>
+  </md-radio-group>
+
+  <button md-mini-fab (click)="openDialog();"  >
+    <md-icon>add</md-icon>
+  </button>
+  <button md-mini-fab style="background-color: green"  (click)="openDialog();"   >
+    <md-icon>add</md-icon>
+  </button>
+</div>

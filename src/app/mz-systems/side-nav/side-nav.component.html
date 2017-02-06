@@ -1,0 +1,214 @@
+<div style="display: flex;flex-flow: column;height:100%;" >
+  <header
+    style="height:40px;background-color:#2196f3;fon-size:14px;text-align: right;line-height: 40px;color:white;font-weight:bold;padding-right:30px;"  class="md-accent"
+  >
+
+    כספונים
+    <button  md-icon-button (click)="rightmenu.close()"  style="position: absolute; left:10px;top:0;">
+      <md-icon class="md-24" >chevron_right</md-icon>
+    </button>
+
+  </header>
+  <md-tab-group (selectChange)="aaa();" >
+    <md-tab label="פרטים" (change)="alert();" >
+  <main style="display: flex;flex-flow: column;">
+
+   <div  style="display: flex;flex-flow: row;">
+  <md-card style="height:90px;margin:3px;width:50%;padding: 5px;">
+    <md-card-header>
+      <md-card-title style="color: red;">  זמינות חודשית </md-card-title>
+      <md-card-subtitle>99.995</md-card-subtitle>
+      <md-card-title style="color: green;">זמינות שנתית</md-card-title>
+      <md-card-subtitle>99.994</md-card-subtitle>
+
+
+
+      <md-icon  md-card-avatar class="md-sm">access_time</md-icon>
+    </md-card-header>
+
+
+  </md-card>
+
+  <md-card style="height:90px;margin:3px;width: 50%;padding: 5px;">
+    <md-card-header>
+      <md-card-title style="color: red;">  תקלות חודשי</md-card-title>
+      <md-card-subtitle>2</md-card-subtitle>
+      <md-card-title style="color: green;"> תקלות שנתי </md-card-title>
+      <md-card-subtitle>4</md-card-subtitle>
+      <md-icon  md-card-avatar class="md-sm">error</md-icon>
+    </md-card-header>
+
+
+  </md-card>
+  </div>
+
+  <div  style="display: flex;flex-flow: row;">
+    <md-card style="height:90px;margin:3px;width:50%;padding: 5px;">
+      <md-card-header>
+        <md-card-title>השבתה חודשית  </md-card-title>
+        <md-card-subtitle>10 דקות</md-card-subtitle>
+        <md-card-title>השבתה שנתית  </md-card-title>
+        <md-card-subtitle>25 דקות</md-card-subtitle>
+
+
+
+        <md-icon  md-card-avatar class="md-sm">pan_tool</md-icon>
+      </md-card-header>
+
+
+    </md-card>
+
+    <md-card style="height:90px;margin:3px;width: 50%;padding: 5px;">
+      <md-card-header>
+        <md-card-title>  זמן תיקון  חודשי</md-card-title>
+        <md-card-subtitle>3 דקות</md-card-subtitle>
+        <md-card-title> זמן תיקון שנתי </md-card-title>
+        <md-card-subtitle>5 דקות</md-card-subtitle>
+        <md-icon  md-card-avatar class="md-sm">build</md-icon>
+      </md-card-header>
+
+
+    </md-card>
+  </div>
+    <div style="display: flex;flex-flow: column;">
+<div id="chart" style="max-height: 30%;height:250px;direction: ltr;"></div>
+    <div id="pie" style="direction: ltr; max-height: 30%;"></div>
+    </div>
+
+  </main>
+    </md-tab>
+    <md-tab label="תקלות">
+    </md-tab>
+
+    <md-tab label="תחקירים">
+    </md-tab>
+
+    <md-tab label="AI">
+    </md-tab>
+
+    <md-tab label="מקבלי SMS">
+    </md-tab>
+
+    <md-tab label="שעות פעילות">
+    </md-tab>
+  </md-tab-group>
+
+<!--  <body style="flex-grow: 1;flex: 1;display:flex;flex-flow: row;  "  >
+  <aside style="flex-grow: 1;max-width: 50%; border-left: solid 1px;">
+    <header style="text-align: center;">חודשי</header>
+    <body>
+זמינות חודשית/שנתית
+    <br>
+    מספר תקלות
+    <br>
+    2 גאוג'ים
+
+<br>
+    תקלות
+    <br>
+    תחקירים \ AI
+    <br>
+    מקבלי sms
+    </body>
+  </aside>
+  <aside  style="flex-grow: 1; "   >
+    <header style="text-align: center;">שנתי</header></aside>
+  </body>-->
+</div>
+<!--
+
+  <md-card style="height:100px;">
+    <md-card-header>
+      <md-card-title>שעות פעילות</md-card-title>
+      <md-card-subtitle>150</md-card-subtitle>
+      <md-card-title>SLA</md-card-title>
+      <md-card-subtitle>100% (150)</md-card-subtitle>
+      <md-icon  md-card-avatar class="md-sm">access_time</md-icon>
+    </md-card-header>
+
+    <sys-monthly-gouge></sys-monthly-gouge>
+  </md-card>
+  &lt;!&ndash;   <md-grid-list cols="2" rowHeight="100px">
+       <md-grid-tile colspan="2" rowspan="3" id="tile1">
+         <md-grid-tile-header>
+             כספונים
+
+           <button  md-icon-button (click)="leftmenu.close()" style="position: absolute; left:0;top:3px;">
+             <md-icon class="md-24" >chevron_right</md-icon>
+           </button>
+         </md-grid-tile-header>
+ <div style="flex:1;padding:5px;">
+           <md-card style="height:240px;padding:10px;">
+
+           &lt;!&ndash;  <md-card-title style="font-size:16px;">מבט כללי</md-card-title>&ndash;&gt;
+           &lt;!&ndash;  <md-card-subtitle>מבט כללי</md-card-subtitle>&ndash;&gt;
+           &lt;!&ndash;  <md-icon  md-card-avatar class="md-24" >chevron_right</md-icon>&ndash;&gt;
+             <md-card style="height:100px;">
+               <md-card-header>
+                 <md-card-title>שעות פעילות</md-card-title>
+                 <md-card-subtitle>150</md-card-subtitle>
+                 <md-card-title>SLA</md-card-title>
+                 <md-card-subtitle>100% (150)</md-card-subtitle>
+                 <md-icon  md-card-avatar class="md-sm">access_time</md-icon>
+               </md-card-header>
+
+
+             </md-card>
+
+               <md-grid-list cols="2" rowHeight="100px">
+                 <md-grid-tile colspan="1" rowspan="1" >
+                   <md-grid-tile-header>חודשי</md-grid-tile-header>
+                 </md-grid-tile>
+                 <md-grid-tile colspan="1" rowspan="1" >
+                   <md-grid-tile-header>שנתי</md-grid-tile-header>
+                 </md-grid-tile>
+               </md-grid-list>
+
+
+
+
+           &lt;!&ndash;  <md-list>
+               <md-list-item style="font-size: 12px !important;">
+                 <md-icon>access_time</md-icon>
+  360000 סה"כ זמני פעילות בדקות</md-list-item>
+               <md-list-item>
+                 <md-icon>av_timer</md-icon>
+                 SLA חודשי  100% (360000 דקות)</md-list-item>
+               <md-list-item> DOWN-TIME חודשי 10 דקות  </md-list-item>
+               <md-list-item> DOWN-TIME שנתי 10 דקות  </md-list-item>
+               <md-list-item> Paprika </md-list-item>
+             </md-list>&ndash;&gt;
+
+           </md-card>
+ </div>
+
+ &lt;!&ndash;<md-list>
+         <md-list-item> UP-TIME חודשי 150 דקות </md-list-item>
+         <md-list-item> SLA חודשי  100% (150 דקות)</md-list-item>
+         <md-list-item> DOWN-TIME חודשי 10 דקות  </md-list-item>
+         <md-list-item> DOWN-TIME שנתי 10 דקות  </md-list-item>
+         <md-list-item> Paprika </md-list-item>
+       </md-list>&ndash;&gt;
+
+       </md-grid-tile>
+
+
+
+
+       <md-grid-tile  colspan="1" rowspan="2"  >
+         <md-grid-tile-header style="background-color: white;color: black;">זמינות חודשית<md-icon class="md-24" style="color: red; transform: rotate(180deg);" >change_history</md-icon></md-grid-tile-header>
+         <sys-monthly-gouge></sys-monthly-gouge>
+       </md-grid-tile>
+       <md-grid-tile  colspan="1" rowspan="2"   >
+         <md-grid-tile-header style="background-color: white;color: black;">  זמינות שנתית<md-icon class="md-24" style="color: green" >change_history</md-icon></md-grid-tile-header>
+
+         <sys-monthly-gouge></sys-monthly-gouge>
+       </md-grid-tile>
+
+
+     </md-grid-list>
+     </md-grid-list>
+    </div>&ndash;&gt;
+-->
+
+
