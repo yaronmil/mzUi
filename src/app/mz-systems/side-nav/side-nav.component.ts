@@ -10,6 +10,7 @@ import * as c3 from 'c3';
 })
 export class SideNavComponent implements OnInit {
 
+  public cars:any[]=[{vin:'11',year:'1989',brand:'aa',color:'red'},{vin:'22',year:'33',brand:'ירון',color:'מילשטיין'}];
   ngOnInit(): void {
 
 

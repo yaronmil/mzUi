@@ -8,7 +8,7 @@ import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
 import { MzSysMapComponent } from './mz-systems/mz-sys-map.component';
-import {SystemDataProviderService} from "./mz-systems/system-data-provider.service";
+import {SystemDataProviderService} from "./services/system-data-provider.service";
 import { RouterModule } from '@angular/router';
 import { AppRoutes} from './app-routes';
 import { MapSearchComponent } from './mz-systems/map-search.component';
@@ -23,6 +23,9 @@ import { MzSecurityCenterComponent } from './main/mz-security-center/mz-security
 
 import { SideNavComponent } from './mz-systems/side-nav/side-nav.component';
 import { TestComponent } from './test/test.component';
+import {DataTableModule,SharedModule} from 'primeng/primeng';
+import { FaultsComponent } from './faults/faults.component';
+import {FaultsDataProviderService} from "./services/faults-data-provider.service";
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { TestComponent } from './test/test.component';
     MzSecurityCenterComponent,
     SideNavComponent,
     SideNavComponent,
-    TestComponent
+    TestComponent,
+    FaultsComponent
+
 
 
   ],
@@ -51,14 +56,15 @@ import { TestComponent } from './test/test.component';
 
     FlexLayoutModule.forRoot(),
     RouterModule.forRoot(AppRoutes),
-    GaugeModule
+    GaugeModule,
+    DataTableModule,SharedModule
 
   ],
   entryComponents: [
     DialogOverviewExampleDialog
   ],
 
-  providers: [D3Service,SystemDataProviderService],
+  providers: [D3Service,SystemDataProviderService,FaultsDataProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

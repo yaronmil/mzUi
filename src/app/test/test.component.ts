@@ -1,5 +1,11 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import * as c3 from 'c3';
+
+export interface Car {
+  vin;
+  year;
+  brand;
+  color;
+}
 
 @Component({
   selector: 'app-test',
@@ -9,19 +15,17 @@ import * as c3 from 'c3';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
 
+  }
+  displayDialog:boolean;
+  public cars:any[]=[{vin:'11',year:'1989',brand:'aa',color:'red'},{vin:'22',year:'33',brand:'ירון',color:'מילשטיין'}];
   ngOnInit() {
-    var chart = c3.generate({
-      bindto: '#chart',
-      data: {
-        columns: [
-          ['data1', 30, 200, 100, 400, 150, 250],
-          ['data2', 130, 100, 140, 200, 150, 50]
-        ]
 
-      }
-    });
+  }
+  showDialogToAdd()
+  {
+    this.displayDialog = true;
   }
 
 }

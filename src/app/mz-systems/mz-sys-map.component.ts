@@ -1,6 +1,6 @@
 import {Component, ElementRef, Input, ViewChild, ViewEncapsulation} from '@angular/core';
 import {D3Service, D3, SimulationNodeDatum} from 'd3-ng2-service';
-import{SystemDataProviderService} from  './system-data-provider.service'
+import{SystemDataProviderService} from  '../services/system-data-provider.service'
 import {MzSystem} from './mz-system'
 import {SimulationLinkDatum} from "d3-force";
 import {sysLink} from "./sys-link";

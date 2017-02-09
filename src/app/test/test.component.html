@@ -1,1 +1,7 @@
-<div id="chart"></div>
+<p-dataTable [value]="cars" selectionMode="single" >
+  <p-column field="vin" header="Vin"></p-column>
+  <p-column field="year" header="Year"></p-column>
+  <p-column field="brand" header="Brand"></p-column>
+  <p-column field="color" header="Color"></p-column>
+  <p-footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></p-footer>
+</p-dataTable>

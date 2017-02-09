@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';*/
 @import '~c3/c3.css';
+@import '~primeng/resources/primeng.css';
+@import '~primeng/resources/themes/cupertino/theme.css';
+
 html, body, material-app, md-sidenav-container  {
   margin: 0;
   width: 100%;
@@ -36,4 +39,9 @@ h1 {
 }
 .mzContent{
   background-color: rgb(245, 245, 245);
+}
+/*סטייל לטקסט שבגריד של ng-prime*/
+.ui-widget
+{
+font-family: Arial;
 }
