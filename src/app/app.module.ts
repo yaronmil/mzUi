@@ -27,6 +27,10 @@ import {DataTableModule,SharedModule} from 'primeng/primeng';
 import { FaultsComponent } from './faults/faults.component';
 import {FaultsDataProviderService} from "./services/faults-data-provider.service";
 
+import { NgReduxModule, NgRedux } from '@angular-redux/store';
+import * as createLogger from 'redux-logger';
+import { rootReducer } from './reducers';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +61,7 @@ import {FaultsDataProviderService} from "./services/faults-data-provider.service
     FlexLayoutModule.forRoot(),
     RouterModule.forRoot(AppRoutes),
     GaugeModule,
-    DataTableModule,SharedModule
+    DataTableModule,SharedModule,NgReduxModule,NgRedux
 
   ],
   entryComponents: [
