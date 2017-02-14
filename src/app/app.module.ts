@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
@@ -31,7 +30,16 @@ import {FaultsDataProviderService} from "./services/faults-data-provider.service
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducer } from './reducers';
+import {RouterStoreModule} from "@ngrx/router-store";
+import { SysTotalsComponent } from './sys-totals/sys-totals.component';
 
+
+import { CovalentCoreModule } from '@covalent/core';
+// (optional) Additional Covalent Modules imports
+import { CovalentHttpModule } from '@covalent/http';
+import { CovalentHighlightModule } from '@covalent/highlight';
+import { CovalentMarkdownModule } from '@covalent/markdown';
+import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
 
 
 
@@ -50,21 +58,32 @@ import { reducer } from './reducers';
     SideNavComponent,
     SideNavComponent,
     TestComponent,
-    FaultsComponent
+    FaultsComponent,
+    SysTotalsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RtlModule,
+    RouterModule.forRoot(AppRoutes),
     MaterialModule.forRoot(),
 
-    FlexLayoutModule.forRoot(),
-    RouterModule.forRoot(AppRoutes),
+
+
     GaugeModule,
     DataTableModule,SharedModule,
     StoreModule.provideStore(reducer),
+    RouterStoreModule.connectRouter(),
+
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
+
+    CovalentCoreModule.forRoot(),
+    // (optional) Additional Covalent Modules imports
+    CovalentHttpModule.forRoot(),
+    CovalentHighlightModule.forRoot(),
+    CovalentMarkdownModule.forRoot(),
+    CovalentDynamicFormsModule.forRoot()
 
 
   ],

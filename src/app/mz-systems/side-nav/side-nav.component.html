@@ -13,17 +13,45 @@
     <md-tab label="פרטים" (change)="alert();" >
   <main style="display: flex;flex-flow: column;">
 
-   <div  style="display: flex;flex-flow: row;">
+  <div  style="display: flex;flex-flow: row;">
+  <md-card style="height:90px;margin:3px;width:50%;padding: 5px;">
+  <md-card-header>
+    <md-card-title style="color: red;">  זמינות חודשית </md-card-title>
+    <md-card-subtitle>99.995</md-card-subtitle>
+    <md-card-title style="color: green;">זמינות שנתית</md-card-title>
+    <md-card-subtitle>99.994</md-card-subtitle>
+
+
+
+    <md-icon  md-card-avatar class="md-sm">access_time</md-icon>
+  </md-card-header>
+
+
+  </md-card>
+
+  <md-card style="height:90px;margin:3px;width: 50%;padding: 5px;">
+  <md-card-header>
+    <md-card-title style="color: red;">  תקלות חודשי</md-card-title>
+    <md-card-subtitle>2</md-card-subtitle>
+    <md-card-title style="color: green;"> תקלות שנתי </md-card-title>
+    <md-card-subtitle>4</md-card-subtitle>
+    <md-icon  md-card-avatar class="md-sm">error</md-icon>
+  </md-card-header>
+
+
+  </md-card>
+  </div>
+  <div  style="display: flex;flex-flow: row;">
   <md-card style="height:90px;margin:3px;width:50%;padding: 5px;">
     <md-card-header>
-      <md-card-title style="color: red;">  זמינות חודשית </md-card-title>
-      <md-card-subtitle>99.995</md-card-subtitle>
-      <md-card-title style="color: green;">זמינות שנתית</md-card-title>
-      <md-card-subtitle>99.994</md-card-subtitle>
+      <md-card-title>השבתה חודשית  </md-card-title>
+      <md-card-subtitle>10 דקות</md-card-subtitle>
+      <md-card-title>השבתה שנתית  </md-card-title>
+      <md-card-subtitle>25 דקות</md-card-subtitle>
 
 
 
-      <md-icon  md-card-avatar class="md-sm">access_time</md-icon>
+      <md-icon  md-card-avatar class="md-sm">pan_tool</md-icon>
     </md-card-header>
 
 
@@ -31,49 +59,20 @@
 
   <md-card style="height:90px;margin:3px;width: 50%;padding: 5px;">
     <md-card-header>
-      <md-card-title style="color: red;">  תקלות חודשי</md-card-title>
-      <md-card-subtitle>2</md-card-subtitle>
-      <md-card-title style="color: green;"> תקלות שנתי </md-card-title>
-      <md-card-subtitle>4</md-card-subtitle>
-      <md-icon  md-card-avatar class="md-sm">error</md-icon>
+      <md-card-title>  זמן תיקון  חודשי</md-card-title>
+      <md-card-subtitle>3 דקות</md-card-subtitle>
+      <md-card-title> זמן תיקון שנתי </md-card-title>
+      <md-card-subtitle>5 דקות</md-card-subtitle>
+      <md-icon  md-card-avatar class="md-sm">build</md-icon>
     </md-card-header>
 
 
   </md-card>
   </div>
-
-  <div  style="display: flex;flex-flow: row;">
-    <md-card style="height:90px;margin:3px;width:50%;padding: 5px;">
-      <md-card-header>
-        <md-card-title>השבתה חודשית  </md-card-title>
-        <md-card-subtitle>10 דקות</md-card-subtitle>
-        <md-card-title>השבתה שנתית  </md-card-title>
-        <md-card-subtitle>25 דקות</md-card-subtitle>
-
-
-
-        <md-icon  md-card-avatar class="md-sm">pan_tool</md-icon>
-      </md-card-header>
-
-
-    </md-card>
-
-    <md-card style="height:90px;margin:3px;width: 50%;padding: 5px;">
-      <md-card-header>
-        <md-card-title>  זמן תיקון  חודשי</md-card-title>
-        <md-card-subtitle>3 דקות</md-card-subtitle>
-        <md-card-title> זמן תיקון שנתי </md-card-title>
-        <md-card-subtitle>5 דקות</md-card-subtitle>
-        <md-icon  md-card-avatar class="md-sm">build</md-icon>
-      </md-card-header>
-
-
-    </md-card>
+  <div style="display: flex;flex-flow: column;">
+  <div id="chart" style="max-height: 30%;height:250px;direction: ltr;"></div>
+  <div id="pie" style="direction: ltr; max-height: 30%;"></div>
   </div>
-    <div style="display: flex;flex-flow: column;">
-<div id="chart" style="max-height: 30%;height:250px;direction: ltr;"></div>
-    <div id="pie" style="direction: ltr; max-height: 30%;"></div>
-    </div>
 
   </main>
     </md-tab>
