@@ -1,6 +1,6 @@
 
 <md-sidenav-container   dir="rtl"   fullscreen>
-  <md-sidenav #start style="width:320px;">
+  <md-sidenav #start style="width:320px;" [opened]="showSidenav$ | async">
     <md-nav-list>
       <md-list>
         <h3 md-subheader>ראשי</h3>
@@ -37,12 +37,12 @@
       </md-list>
       <hr>
     </md-nav-list>
-    <button md-button (click)="start.close()">CLOSE</button>
+    <button md-button (click)="closeSidenav()">CLOSE</button>
   </md-sidenav>
 
 
   <md-toolbar color="primary">
-          <button md-icon-button (click)="start.open()">
+          <button md-icon-button (click)="openSidenav()">
             <md-icon class="md-24" >visibility</md-icon>
           </button>
           <div>

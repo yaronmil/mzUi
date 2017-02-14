@@ -18,8 +18,8 @@ import { MonthlyGougeComponent } from './mz-systems/side-nav/monthly-gouge.compo
 import { GaugeModule } from 'ng2-kw-gauge';
 import { SysStartUpLevelSelectorComponent ,DialogOverviewExampleDialog} from './mz-systems/sys-start-up-level-selector/sys-start-up-level-selector.component';
 import { MainComponent } from './main/main.component';
-import { MzInfoSecurityComponent } from './main/mz-info-security/mz-info-security.component';
-import { MzSecurityCenterComponent } from './main/mz-security-center/mz-security-center.component';
+import { MzInfoSecurityComponent } from './mz-info-security/mz-info-security.component';
+import { MzSecurityCenterComponent } from './mz-security-center/mz-security-center.component';
 
 import { SideNavComponent } from './mz-systems/side-nav/side-nav.component';
 import { TestComponent } from './test/test.component';
@@ -27,9 +27,13 @@ import {DataTableModule,SharedModule} from 'primeng/primeng';
 import { FaultsComponent } from './faults/faults.component';
 import {FaultsDataProviderService} from "./services/faults-data-provider.service";
 
-import { NgReduxModule, NgRedux } from '@angular-redux/store';
-import * as createLogger from 'redux-logger';
-import { rootReducer } from './reducers';
+
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducer } from './reducers';
+
+
+
 
 
 @NgModule({
@@ -47,9 +51,6 @@ import { rootReducer } from './reducers';
     SideNavComponent,
     TestComponent,
     FaultsComponent
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -61,7 +62,10 @@ import { rootReducer } from './reducers';
     FlexLayoutModule.forRoot(),
     RouterModule.forRoot(AppRoutes),
     GaugeModule,
-    DataTableModule,SharedModule,NgReduxModule,NgRedux
+    DataTableModule,SharedModule,
+    StoreModule.provideStore(reducer),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+
 
   ],
   entryComponents: [
@@ -71,4 +75,5 @@ import { rootReducer } from './reducers';
   providers: [D3Service,SystemDataProviderService,FaultsDataProviderService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
