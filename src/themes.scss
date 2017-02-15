@@ -1,5 +1,8 @@
 @import '~@angular/material/core/theming/all-theme';
 @import '~@covalent/core/theming/all-theme';
+/*@import '~@covalent/core/common/styles/layout';*/
+
+
 
 
 
@@ -21,3 +24,14 @@ $theme: md-light-theme($primary, $accent, $warn);
 // (optional) Additional themes
 @include covalent-markdown-theme($theme);
 @include covalent-highlight-theme();
+
+.dark-grey-blue {
+  $primary3: md-palette($md-blue-grey, 800);
+  $accent3:  md-palette($md-teal, 500);
+  $warn3:    md-palette($md-red, 600);
+
+  $dark-grey-blue: md-dark-theme($primary3, $accent3, $warn3);
+
+  @include angular-material-theme($dark-grey-blue);
+  @include covalent-theme($dark-grey-blue);
+}

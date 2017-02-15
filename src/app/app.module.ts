@@ -40,6 +40,8 @@ import { CovalentHttpModule } from '@covalent/http';
 import { CovalentHighlightModule } from '@covalent/highlight';
 import { CovalentMarkdownModule } from '@covalent/markdown';
 import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
+import {DashboardTemplateComponent} from "./dashboard/dashboard.component";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -59,7 +61,9 @@ import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
     SideNavComponent,
     TestComponent,
     FaultsComponent,
-    SysTotalsComponent
+    SysTotalsComponent,
+    DashboardTemplateComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,7 @@ import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
     RtlModule,
     RouterModule.forRoot(AppRoutes),
     MaterialModule.forRoot(),
-
+    NgxChartsModule,
 
 
     GaugeModule,

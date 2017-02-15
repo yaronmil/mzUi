@@ -34,7 +34,43 @@ export class AppComponent {
   openSidenav() {
     this.store.dispatch(new layout.OpenSidenavAction());
   }
-  public  main=
+
+
+  routes: Object[] = [{
+    title: 'Dashboard',
+    route: './dashboard',
+    icon: 'dashboard',
+  }, {
+    title: 'מערכות',
+    route: './מפה',
+    icon: 'view_quilt',
+  }, {
+    title: 'תקלות מערכות פתוחות',
+    route: '/logs',
+    icon: 'receipt',
+  }, {
+    title: 'אירועי אב"מ',
+    route: '/אבמ',
+    icon: 'people',
+  }, {
+    title: 'אירועי מוקד בטחון',
+    route: '/מוקד',
+    icon: 'view_module',
+  },
+    {
+      title: 'רשימת תחקירים',
+      route: '/מוקד',
+      icon: 'view_module',
+    },
+    {
+      title: 'רשימת AI',
+      route: '/מוקד',
+      icon: 'view_module',
+    }
+  ];
+
+
+ /* public  main=
     [
       {name:'תמונת מצב',updated:'מבט מסכם',link:['./ראשי']},
       {name:'אירועי אבמ',updated:'',link:['./אבמ'] },
@@ -47,7 +83,7 @@ export class AppComponent {
       {name:'מערכת חדשה',updated:''},
       {name:'רשימת תחקירים',updated:''},
       {name:'רשימת AI',updated:''}
-    ];
+    ];*/
 
   public  faults=[{name:'רשימת תקלות',updated:'טבלת התקלות'},{name:'תקלות שנמחקו',updated:' '},{name:'תקלה חדשה',updated:' '}];
 

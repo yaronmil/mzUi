@@ -1,65 +1,24 @@
 
-<md-sidenav-container   dir="rtl"   fullscreen>
-  <md-sidenav #start style="width:320px;" [opened]="showSidenav$ | async">
+<td-layout #layout>
+  <td-navigation-drawer logo="assets:covalent" sidenavTitle="מבט לזמנית" name="מחובר טוביה וייס" email="firstname.lastname@company.com">
     <md-nav-list>
-      <md-list>
-        <h3 md-subheader>ראשי</h3>
-        <md-list-item *ngFor="let folder of main">
-          <md-icon md-list-avatar>folder</md-icon>
-          <h4 md-line> <a class="li" [routerLink]="folder.link">{{folder.name}}</a></h4>
-          <p md-line class="demo-2"> {{folder.updated}} </p>
-        </md-list-item>
-        <md-divider></md-divider>
-        <h3 md-subheader>מערכות פתוחות</h3>
-        <md-list-item *ngFor="let folder of sysmenuitems">
-          <md-icon md-list-avatar>folder</md-icon>
-          <h4 md-line>{{folder.name}}</h4>
-          <p md-line class="demo-2"> {{folder.updated}} </p>
-        </md-list-item>
-        <md-divider></md-divider>
-        <h3 md-subheader>תקלות</h3>
-        <md-list-item *ngFor="let note of faults">
-          <md-icon md-list-avatar>note</md-icon>
-          <h4 md-line>{{note.name}}</h4>
-
-          <p md-line class="demo-2"> {{note.updated}} </p>
-        </md-list-item>
-
-        <md-divider></md-divider>
-        <h3 md-subheader>ניהול</h3>
-        <md-list-item *ngFor="let note of admin">
-          <md-icon md-list-avatar>note</md-icon>
-          <h4 md-line>{{note.name}}</h4>
-
-          <p md-line class="demo-2"> {{note.updated}} </p>
-        </md-list-item>
-
-      </md-list>
-      <hr>
+      <template let-item let-last="last" ngFor [ngForOf]="routes">
+        <a md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
+      </template>
     </md-nav-list>
-    <button md-button (click)="closeSidenav()">CLOSE</button>
-  </md-sidenav>
+    <md-nav-list td-navigation-drawer-menu>
+      <a md-list-item (click)="logout()"><md-icon>exit_to_app</md-icon>Sign out</a>
+    </md-nav-list>
+  </td-navigation-drawer>
 
+  <td-layout-nav toolbarTitle="מבט לזמינות החדשה" logo="svgIconName" icon="visibility">
+    <router-outlet></router-outlet>
+    <td-layout-footer>
+      <!--<div  style=" background-image:url('../assets/TochnoLogiaLogo.gif');background-repeat: no-repeat;background-position: right;"></div>-->
+      <img src="../assets/TochnoLogiaLogo.gif">
+    </td-layout-footer>
+  </td-layout-nav>
 
-  <md-toolbar color="primary">
-          <button md-icon-button (click)="openSidenav()">
-            <md-icon class="md-24" >visibility</md-icon>
-          </button>
-          <div>
+</td-layout>
 
-
-            <h1>מבט לזמינות החדשה</h1>
-
-
-
-          </div>
-        </md-toolbar>
-
-    <div style="flex: 1;" class="mzContent" >
-      <router-outlet></router-outlet>
-    </div>
-  <div class="mzContent" style="flex:auto;flex-grow: 0;height:50px;background-image:url('../assets/TochnoLogiaLogo.gif');background-repeat: no-repeat;background-position: right;"></div>
-
-
-</md-sidenav-container>
 
