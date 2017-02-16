@@ -19,12 +19,12 @@ export class SystemDataProviderService {
 
   public  getSystemsList():Observable<MzSystem[]>
   {
-    return  this.http.get("assets/systemsList.json").map(SystemDataProviderService.extractSystemsData)  .catch(SystemDataProviderService.handleError);
+    return  this.http.get("api/systemsList").map(SystemDataProviderService.extractSystemsData)  .catch(SystemDataProviderService.handleError);
 
   }
   public  getSysLinks():Observable<sysLink[]>
   {
-    return  this.http.get("assets/sysLinks.json").map(SystemDataProviderService.extractSysLinks)  .catch(SystemDataProviderService.handleError);
+    return  this.http.get("api/sysLinks").map(SystemDataProviderService.extractSysLinks)  .catch(SystemDataProviderService.handleError);
 
   }
 

@@ -43,6 +43,7 @@ import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
 import {DashboardTemplateComponent} from "./dashboard/dashboard.component";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+import 'hammerjs';
 
 
 

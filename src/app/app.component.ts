@@ -67,6 +67,13 @@ export class AppComponent {
       route: '/מוקד',
       icon: 'view_module',
     }
+    ,
+    {
+      title: 'testim',
+      route: '/test',
+      icon: 'view_module',
+    }
+
   ];
 
 
