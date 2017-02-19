@@ -1,0 +1,6 @@
+<p-dataTable [value]="faults" selectionMode="single" >
+  <p-column field="id" header="סידורי"></p-column>
+  <p-column field="description" header="תיאור"></p-column>
+  <p-column field="totalDownTime" header="השבתה"></p-column>
+  <p-footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></p-footer>
+</p-dataTable>

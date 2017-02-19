@@ -1,5 +1,7 @@
 {
   "/api/": "/",
   "/faults": "/faults",
+  "/systems": "/systems",
+  "/syslinks": "/syslinks",
   "/blog/:category": "/posts?category=:category"
 }
