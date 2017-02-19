@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {MzSystem} from "../mz-systems/mz-system";
-import {sysLink} from "../mz-systems/sys-link";
+import {MzSystem} from "../components/mz-systems/mz-system";
+import {sysLink} from "../components/mz-systems/sys-link";
 import {Http,Response } from '@angular/http';
 
 

@@ -4,8 +4,8 @@ import {MdDialog,MdDialogRef} from '@angular/material';
 
 @Component({
   selector: 'sys-start-up-level-selector',
-  templateUrl: './sys-start-up-level-selector.component.html',
-  styleUrls: ['./sys-start-up-level-selector.component.css']
+  templateUrl: 'sys-start-up-level-selector.component.html',
+  styleUrls: ['sys-start-up-level-selector.component.css']
 })
 export class SysStartUpLevelSelectorComponent implements OnInit {
 

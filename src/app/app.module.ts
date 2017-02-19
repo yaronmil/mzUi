@@ -5,25 +5,25 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { D3Service } from 'd3-ng2-service';
 
-import { AppComponent } from './app.component';
-import { MzSysMapComponent } from './mz-systems/mz-sys-map.component';
+import { AppComponent } from './components/app/app.component';
+import { MzSysMapComponent } from './components/mz-systems/mz-sys-map.component';
 import {SystemDataProviderService} from "./services/system-data-provider.service";
 import { RouterModule } from '@angular/router';
 import { AppRoutes} from './app-routes';
-import { MapSearchComponent } from './mz-systems/map-search.component';
+import { MapSearchComponent } from './components/mz-systems/map-search.component';
 
 import {RtlModule} from '@angular/material/core/rtl/dir';
-import { MonthlyGougeComponent } from './mz-systems/side-nav/monthly-gouge.component';
+/*import { MonthlyGougeComponent } from './mz-systems/side-nav/monthly-gouge.component';*/
 import { GaugeModule } from 'ng2-kw-gauge';
-import { SysStartUpLevelSelectorComponent ,DialogOverviewExampleDialog} from './mz-systems/sys-start-up-level-selector/sys-start-up-level-selector.component';
-import { MainComponent } from './main/main.component';
-import { MzInfoSecurityComponent } from './mz-info-security/mz-info-security.component';
-import { MzSecurityCenterComponent } from './mz-security-center/mz-security-center.component';
+import { SysStartUpLevelSelectorComponent ,DialogOverviewExampleDialog} from './components/mz-systems/sys-start-up-level-selector/sys-start-up-level-selector.component';
+/*import { MainComponent } from './components/main/main.component';*/
+import { MzInfoSecurityComponent } from './components/faults-info-security/mz-info-security.component';
+import { MzSecurityCenterComponent } from './components/faults-security-center/mz-security-center.component';
 
-import { SideNavComponent } from './mz-systems/side-nav/side-nav.component';
-import { TestComponent } from './test/test.component';
+import { SideNavComponent } from './components/mz-systems/side-nav/side-nav.component';
+import { TestComponent } from './components/test/test.component';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
-import { FaultsComponent } from './faults/faults.component';
+import { FaultsComponent } from './components/faults/faults.component';
 import {FaultsDataProviderService} from "./services/faults-data-provider.service";
 
 
@@ -31,7 +31,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducer } from './reducers';
 import {RouterStoreModule} from "@ngrx/router-store";
-import { SysTotalsComponent } from './sys-totals/sys-totals.component';
+import { SysTotalsComponent } from './components/mz-systems/sys-totals/sys-totals.component';
 
 
 import { CovalentCoreModule } from '@covalent/core';
@@ -40,7 +40,7 @@ import { CovalentHttpModule } from '@covalent/http';
 import { CovalentHighlightModule } from '@covalent/highlight';
 import { CovalentMarkdownModule } from '@covalent/markdown';
 import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
-import {DashboardTemplateComponent} from "./dashboard/dashboard.component";
+import {DashboardTemplateComponent} from "./components/dashboard/dashboard.component";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import 'hammerjs';
@@ -52,10 +52,10 @@ import 'hammerjs';
     AppComponent,
     MzSysMapComponent,
     MapSearchComponent,
-    MonthlyGougeComponent,
+    /*MonthlyGougeComponent,*/
     SysStartUpLevelSelectorComponent,
     DialogOverviewExampleDialog,
-    MainComponent,
+    /*MainComponent,*/
     MzInfoSecurityComponent,
     MzSecurityCenterComponent,
     SideNavComponent,

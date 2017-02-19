@@ -1,10 +1,10 @@
-import {MzSysMapComponent} from "./mz-systems/mz-sys-map.component";
+import {MzSysMapComponent} from "./components/mz-systems/mz-sys-map.component";
 import {Routes} from "@angular/router";
-import {MainComponent} from "./main/main.component";
-import {MzInfoSecurityComponent} from "./mz-info-security/mz-info-security.component";
-import {MzSecurityCenterComponent} from "./mz-security-center/mz-security-center.component";
-import {TestComponent} from "./test/test.component";
-import {DashboardTemplateComponent} from "./dashboard/dashboard.component";
+
+import {MzInfoSecurityComponent} from "./components/faults-info-security/mz-info-security.component";
+import {MzSecurityCenterComponent} from "./components/faults-security-center/mz-security-center.component";
+import {TestComponent} from "./components/test/test.component";
+import {DashboardTemplateComponent} from "./components/dashboard/dashboard.component";
 export const AppRoutes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'מפה', component: MzSysMapComponent },

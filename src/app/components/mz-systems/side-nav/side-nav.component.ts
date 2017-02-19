@@ -1,21 +1,31 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, ElementRef} from '@angular/core';
 import * as c3 from 'c3';
 
 @Component({
-  selector: 'app-sys-totals',
-  templateUrl: './sys-totals.component.html',
-  styleUrls: ['./sys-totals.component.css']
+  selector: 'app-side-nav',
+
+  templateUrl: 'side-nav.component.html',
+  styleUrls: ['side-nav.component.css'],
+
 })
-export class SysTotalsComponent implements OnInit {
+export class SideNavComponent implements OnInit {
+
+  public cars:any[]=[{vin:'11',year:'1989',brand:'aa',color:'red'},{vin:'22',year:'33',brand:'ירון',color:'מילשטיין'}];
+  ngOnInit(): void {
+
+
+  }
+
+
+
+  constructor(private element: ElementRef) { }
 
   @Input()
-  id:number;
-  constructor() { }
-
-  ngOnInit() {
-    console.log('#chart'+this.id)
+  public rightmenu:any  ;
+  public aaa()
+  {
     var chart = c3.generate({
-      bindto: '#chart1',
+      bindto: '#chart',
       data: {
         columns: [
           ['data1', 30, 200, 100, 400, 150, 250],
@@ -57,5 +67,7 @@ export class SysTotalsComponent implements OnInit {
       }
     });
   }
+
+
 
 }

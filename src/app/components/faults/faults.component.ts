@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Fault} from "../models/fault";
-import {FaultsDataProviderService} from "../services/faults-data-provider.service";
+import {Fault} from "../../models/fault";
+import {FaultsDataProviderService} from "../../services/faults-data-provider.service";
 
 @Component({
   selector: 'app-faults',
-  templateUrl: './faults.component.html',
-  styleUrls: ['./faults.component.css']
+  templateUrl: 'faults.component.html',
+  styleUrls: ['faults.component.css']
 })
 export class FaultsComponent implements OnInit {
   public faults:Fault[];

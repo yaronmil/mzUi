@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 
-import * as fromRoot from './reducers';
-import * as layout from './actions/layout';
+import * as fromRoot from '../../reducers';
+import * as layout from '../../actions/layout';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
 })
 export class AppComponent {
   showSidenav$: Observable<boolean>;
@@ -46,7 +46,7 @@ export class AppComponent {
     icon: 'view_quilt',
   }, {
     title: 'תקלות מערכות פתוחות',
-    route: '/logs',
+    route: '/faults',
     icon: 'receipt',
   }, {
     title: 'אירועי אב"מ',
@@ -65,6 +65,12 @@ export class AppComponent {
     {
       title: 'רשימת AI',
       route: '/מוקד',
+      icon: 'view_module',
+    }
+    ,
+    {
+      title: 'הרשאות גישה',
+      route: '/test',
       icon: 'view_module',
     }
     ,
