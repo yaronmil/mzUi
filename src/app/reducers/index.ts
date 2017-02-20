@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { ActionReducer } from '@ngrx/store';
-/*import * as fromRouter from '@ngrx/router-store';*/
+
 import { environment } from '../../environments/environment';
 
 /**
@@ -41,6 +41,7 @@ import { combineReducers } from '@ngrx/store';
 import * as fromBooks from './books';
 import * as fromCollection from './collection';*/
 import * as fromLayout from './layout';
+import {RouterState, routerReducer} from "@ngrx/router-store";
 
 
 /**
@@ -48,11 +49,14 @@ import * as fromLayout from './layout';
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface State {
+  router: RouterState;
+
 /*  search: fromSearch.State;
   books: fromBooks.State;
   collection: fromCollection.State;*/
+
   layout: fromLayout.State;
-  /*router: fromRouter.RouterState;*/
+
 }
 
 
@@ -64,6 +68,7 @@ export interface State {
  * the result from right to left.
  */
 const reducers = {
+  router:routerReducer,
  /* search: fromSearch.reducer,
   books: fromBooks.reducer,
   collection: fromCollection.reducer,*/

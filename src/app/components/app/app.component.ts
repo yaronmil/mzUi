@@ -1,26 +1,37 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild, OnInit} from '@angular/core';
 
 
 import * as fromRoot from '../../reducers';
 import * as layout from '../../actions/layout';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
+import {TdLayoutComponent} from "@covalent/core";
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })
-export class AppComponent {
-  showSidenav$: Observable<boolean>;
+export class AppComponent implements OnInit  {
+  @ViewChild('layout') rightmenu: TdLayoutComponent;
+  /*showSidenav$: Observable<boolean>;*/
+  that  ;
 
   constructor(private store: Store<fromRoot.State>) {
     /**
      * Selectors can be applied with the `select` operator which passes the state
      * tree to the provided selector
      */
-    this.showSidenav$ = this.store.select(fromRoot.getShowSidenav);
+    this.that=this;
+   //
+
   }
+  ngOnInit() {
+    this.store.select(fromRoot.getShowSidenav).subscribe(s=>  this.rightmenu.sidenav.opened=s)
+    this.rightmenu.sidenav.onOpen.subscribe(s=>this.openSidenav())
+    this.rightmenu.sidenav.onClose.subscribe(s=>this.closeSidenav())
+  }
+
   closeSidenav() {
     /**
      * All state updates are handled through dispatched actions in 'container'
@@ -29,10 +40,12 @@ export class AppComponent {
      * application.
      */
     this.store.dispatch(new layout.CloseSidenavAction());
+
   }
 
   openSidenav() {
     this.store.dispatch(new layout.OpenSidenavAction());
+
   }
 
 
