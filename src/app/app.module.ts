@@ -7,30 +7,30 @@ import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './components/app/app.component';
 import { MzSysMapComponent } from './components/mz-systems/mz-sys-map.component';
-import {SystemDataProviderService} from "./services/system-data-provider.service";
+import { SystemDataProviderService } from "./services/system-data-provider.service";
 import { RouterModule } from '@angular/router';
-import { AppRoutes} from './app-routes';
+import { AppRoutes } from './app-routes';
 import { MapSearchComponent } from './components/mz-systems/map-search.component';
 
-import {RtlModule} from '@angular/material/core/rtl/dir';
+import { RtlModule } from '@angular/material/core/rtl/dir';
 /*import { MonthlyGougeComponent } from './mz-systems/side-nav/monthly-gouge.component';*/
 import { GaugeModule } from 'ng2-kw-gauge';
-import { SysStartUpLevelSelectorComponent ,DialogOverviewExampleDialog} from './components/mz-systems/sys-start-up-level-selector/sys-start-up-level-selector.component';
+import { SysStartUpLevelSelectorComponent } from './components/mz-systems/sys-start-up-level-selector/sys-start-up-level-selector.component';
 /*import { MainComponent } from './components/main/main.component';*/
 import { MzInfoSecurityComponent } from './components/faults-info-security/mz-info-security.component';
 import { MzSecurityCenterComponent } from './components/faults-security-center/mz-security-center.component';
 
 import { SideNavComponent } from './components/mz-systems/side-nav/side-nav.component';
 import { TestComponent } from './components/test/test.component';
-import {DataTableModule,SharedModule} from 'primeng/primeng';
+import { DataTableModule, SharedModule } from 'primeng/primeng';
 import { FaultsComponent } from './components/faults/faults.component';
-import {FaultsDataProviderService} from "./services/faults-data-provider.service";
+import { FaultsDataProviderService } from "./services/faults-data-provider.service";
 
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducer } from './reducers';
-import {RouterStoreModule} from "@ngrx/router-store";
+import { RouterStoreModule } from "@ngrx/router-store";
 import { SysTotalsComponent } from './components/mz-systems/sys-totals/sys-totals.component';
 
 
@@ -40,11 +40,11 @@ import { CovalentHttpModule } from '@covalent/http';
 import { CovalentHighlightModule } from '@covalent/highlight';
 import { CovalentMarkdownModule } from '@covalent/markdown';
 import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
-import {DashboardTemplateComponent} from "./components/dashboard/dashboard.component";
+import { DashboardTemplateComponent } from "./components/dashboard/dashboard.component";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import 'hammerjs';
-
+import { DialogOverviewComponent } from './components/dialog-overview/dialog-overview.component';
 
 
 @NgModule({
@@ -54,7 +54,6 @@ import 'hammerjs';
     MapSearchComponent,
     /*MonthlyGougeComponent,*/
     SysStartUpLevelSelectorComponent,
-    DialogOverviewExampleDialog,
     /*MainComponent,*/
     MzInfoSecurityComponent,
     MzSecurityCenterComponent,
@@ -64,7 +63,7 @@ import 'hammerjs';
     FaultsComponent,
     SysTotalsComponent,
     DashboardTemplateComponent,
-
+    DialogOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -74,15 +73,11 @@ import 'hammerjs';
     RouterModule.forRoot(AppRoutes),
     MaterialModule.forRoot(),
     NgxChartsModule,
-
-
     GaugeModule,
-    DataTableModule,SharedModule,
+    DataTableModule, SharedModule,
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
-
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-
     CovalentCoreModule.forRoot(),
     // (optional) Additional Covalent Modules imports
     CovalentHttpModule.forRoot(),
@@ -90,14 +85,13 @@ import 'hammerjs';
     CovalentMarkdownModule.forRoot(),
     CovalentDynamicFormsModule.forRoot()
 
-
   ],
   entryComponents: [
-    DialogOverviewExampleDialog
+    DialogOverviewComponent
   ],
 
-  providers: [D3Service,SystemDataProviderService,FaultsDataProviderService],
+  providers: [D3Service, SystemDataProviderService, FaultsDataProviderService],
   bootstrap: [AppComponent]
 })
 
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,21 @@
+<h2 md-dialog-title>הוספת תקלה חדשה</h2>
+<md-dialog-content>
+  <div layout="column" style="direction: rtl">
+    <form name="faultForm">
+      <div>
+          <md-select md-input placeholder="שם מערכת" id="system" [(ngModel)]="fault.system" name="system" required >
+            <md-option md-input *ngFor="let system of systems" [value]="system.id">{{system.name}}</md-option>
+          </md-select>
+      </div>
+
+      <div>
+        <md-checkbox>תקלה חוזרת</md-checkbox>
+      </div>
+
+    </form>
+  </div>
+</md-dialog-content>
+
+<md-dialog-actions [attr.align]="actionsAlignment">
+  <button md-raised-button color="primary" md-dialog-close>ביטול</button>
+</md-dialog-actions>

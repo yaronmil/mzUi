@@ -1,7 +1,16 @@
+import { MzSystem } from "./mz-system";
+import{ FaultType} from "../enums/fault-type.enum";
+
 export class Fault {
-  id:number;
-  start:Date;
-  end:Date;
-  totalDownTime:number;
-  description:string;
+   public id: number;
+    public system: MzSystem;
+    public start: Date;
+    public end: Date;
+    public totalDownTime: number;
+    public faultType: FaultType;
+    public description: string;
+    public status: number;
+
+  constructor(){}
+
 }

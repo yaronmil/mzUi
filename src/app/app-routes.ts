@@ -5,6 +5,8 @@ import {MzInfoSecurityComponent} from "./components/faults-info-security/mz-info
 import {MzSecurityCenterComponent} from "./components/faults-security-center/mz-security-center.component";
 import {TestComponent} from "./components/test/test.component";
 import {DashboardTemplateComponent} from "./components/dashboard/dashboard.component";
+import {FaultsComponent} from "./components/faults/faults.component"
+
 export const AppRoutes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'מפה', component: MzSysMapComponent },
@@ -12,7 +14,8 @@ export const AppRoutes: Routes = [
   { path: 'אבמ', component: MzInfoSecurityComponent },
   { path: 'מוקד', component: MzSecurityCenterComponent},
   { path: 'dashboard', component: DashboardTemplateComponent},
-  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'תקלות', component: FaultsComponent},
+  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' }
 
 ];
 
